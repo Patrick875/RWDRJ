@@ -1,0 +1,49 @@
+# fly.toml app configuration file generated for rwdrj-all on 2024-05-07T09:00:39+02:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'rwdrj-all'
+primary_region = 'cdg'
+
+[build]
+
+[env]
+  CLOUDINARY_API_CLIENT_NAME = 'didikwl4i'
+  CLOUDINARY_API_KEY = '666335184711466'
+  CLOUDINARY_API_SECRET = 'JXiP1cUSE0ocB8IQcQd1tpU8mTw'
+  CLOUDINARY_URL = 'cloudinary://666335184711466:JXiP1cUSE0ocB8IQcQd1tpU8mTw@didikwl4i'
+  JWT_EXPIRATION_NUM = '90000000'
+  JWT_EXPIRES_IN = '900000000'
+  JWT_SECRET = 'mysuperverysecretsecretverysecretkey'
+  ONLINE_DATABASE_URL = 'mongodb+srv://kubwimanaaped:F153i9tlyEK9NZLx@cluster0.kphp9lf.mongodb.net/womendoctors?retryWrites=true&w=majority'
+  PORT = '8080'
+  RESET_PASSWORD_EMAIL = 'medicaldoctorsforchoice@gmail.com'
+  RESET_PASSWORD_PASSWORD = 'bxdkqthxcufpbihk'
+  frontendURL = 'http://localhost:5173'
+  serverURL = 'http://0.0.0.0:8080'
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[services]]
+  protocol = 'tcp'
+  internal_port = 8080
+
+  [[services.ports]]
+    port = 80
+    handlers = ['http']
+
+  [services.concurrency]
+    hard_limit = 25
+    soft_limit = 20
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
